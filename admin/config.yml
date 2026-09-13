@@ -5,8 +5,8 @@ backend:
 media_folder: "src/assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
-site_url: https://REPLACE-WITH-YOUR-NETLIFY-OR-CUSTOM-DOMAIN
-display_url: https://REPLACE-WITH-YOUR-NETLIFY-OR-CUSTOM-DOMAIN
+site_url: https://kuclawstudentsunion.netlify.app
+display_url: https://kuclawstudentsunion.netlify.app
 
 collections:
   - name: "home"
