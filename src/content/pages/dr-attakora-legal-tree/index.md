@@ -25,6 +25,6 @@ The Dr. Attakora Legal Tree consists of four main components:
 
 **Journals and Publications** — a regularly updated collection of legal journals and publications from reputable national and international publishers.
 
-**Ask Attakora AI Chatbot** — an AI assistant for instant, personalized help with legal concepts, case guidance, and legal writing. *(This feature is planned but not yet live.)*
+**Ask Attakora AI Chatbot** — an AI assistant for instant, personalized help with legal concepts, case guidance, and legal writing. 
 
 The Dr. Attakora Legal Tree is a testament to the LSU's commitment to harnessing technology to enhance the legal education experience. As the platform continues to evolve, the LSU welcomes feedback and suggestions from students, faculty, and stakeholders.
