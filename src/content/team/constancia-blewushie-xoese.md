@@ -1,6 +1,6 @@
 ---
 name: Constancia Blewushie Xoese
-role: Legal Affairs Commissioner
+role: General Secretary
 order: 5
-photo: ""
+photo: "/assets/images/uploads/team/constancia-blewushie-xoese.jpg"
 ---

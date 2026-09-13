@@ -74,27 +74,32 @@ Go to `/admin/` on your deployed site, log in, and edit:
 - **Executive Team** — add/remove/reorder members, upload photos
 - **Announcements** / **Events** — add new posts, they show on the homepage automatically
 
-## ⚠️ Things that need your attention before/at launch
+## ✅ Resolved during the rebuild (2026-09-13)
 
-1. **The union's real email address.** The old site used `hello@kuclawstudentsunion.com`. That
-   domain **no longer belongs to the union** — as of this rebuild it redirects to an unrelated
-   gambling spam site (`akunslotdemogratis.org`), meaning the domain lapsed and was picked up by
-   someone else. **Do not keep using any @kuclawstudentsunion.com email** — anything sent there
-   may now go to a stranger. Set up a fresh email on your new domain (or a Gmail in the meantime)
-   and update it in Site Settings.
-2. **Executive team is out of date.** The three names seeded in "Executive Team" (Suad Mohammed
-   Saani, Addo Benjamin Armah, Frederick Obliquaye Commey) are the last ones visible on the old
-   site, from the 2024/2025 academic year. Update this immediately via the CMS with the current
-   exec.
-3. **Full "Welcome Message" text is missing.** Only a one-line excerpt survived from the old site
-   (the popup that held the full letter was broken even before the domain lapsed). Ask the current
-   President/VP to write a fresh one.
-4. **Some resource links were never filled in on the old site** (Past Questions by level,
+- **Contact email** updated to the union's real working Gmail, `lawstudentsunionkuc@gmail.com`
+  (from the current progress report). The old `hello@kuclawstudentsunion.com` is **gone for
+  good** — that domain now redirects to an unrelated gambling spam site
+  (`akunslotdemogratis.org`), meaning it lapsed and was picked up by someone else. Never use an
+  @kuclawstudentsunion.com address again.
+- **Full Welcome Message** replaced with the actual letter from George Ofori Gorleku (President)
+  & Priscilla More (Vice President).
+- **Executive Team** replaced with the current, full 13-person roster and real photos (from
+  `LSU Site Update/`), current as of the 12th LSU Tenure (George-More administration).
+- **George-More Legal Hub** section added to the homepage, linking to
+  `https://drive.google.com/drive/folders/16Va3cg5_fnLKYbC9vkAK-ZxroX34Y27y`.
+- **8 real announcement posts** added covering June–August 2026 (Online Tutorials, Legal Hub
+  launch, Pre-Bar webinar, Supreme Court Moot, wigs & gowns donation, Patron outdooring, Beyond
+  the Title webinar), plus a "This Semester" activity list (Freshers Orientation, Moot Court
+  Society launch, Annual Moot Competition, LSU Conference).
+
+## ⚠️ Still needs your attention before/at launch
+
+1. **Some resource links were never filled in on the old site** (Past Questions by level,
    "Past Questions of other schools", both Journals links) — flagged with `**To do**` notes on
    those pages. Add the Google Drive links via the CMS once you have them.
-5. **Google Drive folders**: the Law Reports / Textbooks / Past Questions links carried over from
+2. **Google Drive folders**: the Law Reports / Textbooks / Past Questions links carried over from
    the old site point to Google Drive folders that should be unaffected by the domain issue —
    but confirm the union still has owner/edit access to each one (whoever originally created them
    may no longer be involved).
-6. **Chamber assignments PDF** is the one from 28 Oct 2024 — replace with a current list via the
+3. **Chamber assignments PDF** is the one from 28 Oct 2024 — replace with a current list via the
    CMS when available.

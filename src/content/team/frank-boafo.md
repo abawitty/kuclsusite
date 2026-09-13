@@ -1,6 +1,6 @@
 ---
 name: Frank Boafo
-role: Chief Justice
-order: 6
-photo: ""
+role: Financial Secretary
+order: 7
+photo: "/assets/images/uploads/team/frank-boafo.jpg"
 ---
