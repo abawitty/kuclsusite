@@ -10,7 +10,7 @@ links:
     url: /dr-attakora-legal-tree/access-textbooks/
   - label: Access Law Reports
     url: /dr-attakora-legal-tree/access-ghana-law-report/
-  - label: Access Journals and Publications
+  - label: Access Journals, Articles and Publications
     url: /dr-attakora-legal-tree/access-journals-and-publications/
 ---
 The Dr. Attakora Legal Tree is a groundbreaking online platform designed to revolutionize the way law students at Kings University College access and engage with legal knowledge. Named after the Head of our Department and esteemed legal scholar and mentor, Dr. Attakora, this comprehensive resource aims to provide students with a one-stop-shop for all their legal education needs.
