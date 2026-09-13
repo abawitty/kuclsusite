@@ -30,6 +30,16 @@ title: Home
 <section class="wrap section">
   <div class="two-col">
     <div>
+      <div class="prez-veep-photos">
+        {% for member in collections.team %}
+          {% if member.data.role == "President" or member.data.role == "Vice President" %}
+          <div class="prez-veep-photo">
+            <img src="{{ member.data.photo or '/assets/images/uploads/placeholder-avatar.svg' }}" alt="{{ member.data.name }}">
+            <p>{{ member.data.name }}</p>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
       <h2>{{ home.welcomeHeading }}</h2>
       <p class="eyebrow">Prez &amp; Veep</p>
       <p>{{ home.welcomeBody }}</p>

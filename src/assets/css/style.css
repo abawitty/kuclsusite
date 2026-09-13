@@ -189,6 +189,27 @@ img { max-width: 100%; display: block; }
 .team-card h3 { font-size: 1rem; margin-bottom: 2px; }
 .team-card p { color: var(--muted); font-size: 0.9rem; margin: 0; }
 
+/* President & VP photos on homepage */
+.prez-veep-photos {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+.prez-veep-photo { text-align: center; }
+.prez-veep-photo img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--ink);
+  margin: 0 auto 6px;
+}
+.prez-veep-photo p {
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin: 0;
+}
+
 /* Chambers */
 .chamber-grid {
   display: grid;
