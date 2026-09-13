@@ -21,10 +21,19 @@ collections:
           - { label: "Welcome Heading", name: "welcomeHeading", widget: "string" }
           - { label: "Welcome Message Body", name: "welcomeBody", widget: "text" }
           - { label: "Legal Tree Teaser", name: "legalTreeTeaser", widget: "text" }
+          - { label: "George-More Legal Hub Heading", name: "legalHubHeading", widget: "string" }
+          - { label: "George-More Legal Hub Body", name: "legalHubBody", widget: "text" }
+          - { label: "George-More Legal Hub URL", name: "legalHubUrl", widget: "string", required: false }
           - { label: "Alumni Network Heading", name: "alumniHeading", widget: "string" }
           - { label: "Alumni Network Body", name: "alumniBody", widget: "text" }
           - { label: "Announcement Heading", name: "announcementHeading", widget: "string" }
           - { label: "Announcement Body", name: "announcementBody", widget: "text" }
+          - { label: "This Semester: Heading", name: "activitiesHeading", widget: "string" }
+          - { label: "This Semester: Subheading", name: "activitiesSubheading", widget: "string" }
+          - label: "This Semester: Activities"
+            name: "activitiesList"
+            widget: "list"
+            field: { label: "Activity", name: "item", widget: "string" }
 
   - name: "site_settings"
     label: "Site Settings"

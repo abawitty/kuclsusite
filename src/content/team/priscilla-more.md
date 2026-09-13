@@ -1,5 +1,5 @@
 ---
-name: Addo Benjamin Armah
+name: Priscilla More
 role: Vice President
 order: 2
 photo: ""

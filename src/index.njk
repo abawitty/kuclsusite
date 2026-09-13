@@ -26,6 +26,29 @@ title: Home
 </section>
 
 <section class="wrap section alt-bg">
+  <div class="two-col">
+    <div>
+      <h2>{{ home.legalHubHeading }}</h2>
+      <p>{{ home.legalHubBody }}</p>
+      {% if home.legalHubUrl %}<a class="btn" href="{{ home.legalHubUrl }}" target="_blank" rel="noopener">Open the Hub</a>{% endif %}
+    </div>
+    <div>
+      <img src="/assets/images/uploads/george-more-legal-hub-poster.jpg" alt="The George-More Legal Hub" style="border-radius: 10px; max-width: 320px; margin: 0 auto;">
+    </div>
+  </div>
+</section>
+
+<section class="wrap section">
+  <h2>{{ home.activitiesHeading }}</h2>
+  <p class="eyebrow">{{ home.activitiesSubheading }}</p>
+  <div class="chamber-grid">
+    {% for item in home.activitiesList %}
+    <div class="chamber-card">{{ item }}</div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap section alt-bg">
   <h2>{{ home.alumniHeading }}</h2>
   <p>{{ home.alumniBody }}</p>
   <a class="btn" href="/about-us/">Learn more</a>
