@@ -10,6 +10,23 @@ title: Home
   </div>
 </section>
 
+{% if lawNews.length %}
+<div class="news-ticker">
+  <div class="marquee">
+    <div class="marquee-track">
+      {% for i in [0, 1] %}
+        {% for item in lawNews %}
+        <a class="news-item" href="{{ item.link }}" target="_blank" rel="noopener">
+          <span class="news-tag">{{ home.newsHeading or "Ghana Law News" }}</span>
+          {{ item.title }}
+        </a>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
 <section class="wrap section">
   <div class="two-col">
     <div>
@@ -54,23 +71,32 @@ title: Home
   <a class="btn" href="/about-us/">Learn more</a>
 </section>
 
-<section class="wrap section">
-  <h2>{{ home.announcementHeading }}</h2>
-  <p>{{ home.announcementBody }}</p>
-
-  <div class="team-grid">
-    {% for member in collections.team %}
-    <div class="team-card">
-      <img src="{{ member.data.photo or '/assets/images/uploads/placeholder-avatar.svg' }}" alt="{{ member.data.name }}">
-      <h3>{{ member.data.name }}</h3>
-      <p>{{ member.data.role }}</p>
+<section class="section">
+  <div class="wrap">
+    <h2>{{ home.execHeading or "Know Your LSU Executives 2026" }}</h2>
+  </div>
+  <div class="marquee exec-slider">
+    <div class="marquee-track">
+      {% for i in [0, 1] %}
+        {% for member in collections.team %}
+        <div class="exec-card">
+          <img src="{{ member.data.photo or '/assets/images/uploads/placeholder-avatar.svg' }}" alt="{{ member.data.name }}">
+          <h3>{{ member.data.name }}</h3>
+          <p>{{ member.data.role }}</p>
+        </div>
+        {% endfor %}
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
 </section>
 
-{% if collections.announcements.length %}
 <section class="wrap section alt-bg">
+  <h2>{{ home.announcementHeading }}</h2>
+  <p>{{ home.announcementBody }}</p>
+</section>
+
+{% if collections.announcements.length %}
+<section class="wrap section">
   <h2>Latest Announcements</h2>
   <div class="announcement-list">
     {% for post in collections.announcements %}
@@ -85,7 +111,7 @@ title: Home
 {% endif %}
 
 {% if collections.events.length %}
-<section class="wrap section">
+<section class="wrap section alt-bg">
   <h2>Upcoming Events</h2>
   <div class="announcement-list">
     {% for event in collections.events %}

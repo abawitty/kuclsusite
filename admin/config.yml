@@ -34,6 +34,8 @@ collections:
             name: "activitiesList"
             widget: "list"
             field: { label: "Activity", name: "item", widget: "string" }
+          - { label: "Executives Slider: Heading", name: "execHeading", widget: "string" }
+          - { label: "News Ticker: Tag Label", name: "newsHeading", widget: "string" }
 
   - name: "site_settings"
     label: "Site Settings"
