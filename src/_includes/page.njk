@@ -1,0 +1,76 @@
+---
+layout: base.njk
+---
+<div class="page-hero">
+  <div class="wrap">
+    <h1>{{ title }}</h1>
+    {% if subtitle %}<p class="page-subtitle">{{ subtitle }}</p>{% endif %}
+  </div>
+</div>
+
+<div class="wrap page-body">
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+
+  {% if links %}
+  <div class="link-grid">
+    {% for link in links %}
+    <a class="link-card" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if chambers %}
+  <div class="chamber-grid">
+    {% for chamber in chambers %}
+    <div class="chamber-card">{{ chamber }}</div>
+    {% endfor %}
+  </div>
+  {% if assignmentsUrl %}
+  <p class="center-cta"><a class="btn" href="{{ assignmentsUrl }}" target="_blank" rel="noopener">View Chamber Assignments</a></p>
+  {% endif %}
+  {% endif %}
+
+  {% if showTeam %}
+  <div class="team-grid">
+    {% for member in collections.team %}
+    <div class="team-card">
+      <img src="{{ member.data.photo or '/assets/images/uploads/placeholder-avatar.svg' }}" alt="{{ member.data.name }}">
+      <h3>{{ member.data.name }}</h3>
+      <p>{{ member.data.role }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if showForm %}
+  <form class="lsu-form" name="{{ formName }}" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="{{ formName }}">
+    <p class="hidden-field"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+    <label>Full Name
+      <input type="text" name="name">
+    </label>
+    <label>Email Address
+      <input type="email" name="email" required>
+    </label>
+    {% if formName == "support-lsu" %}
+    <label>Topic
+      <select name="topic">
+        <option>Donate to the LSU</option>
+        <option>Sponsor LSU Events</option>
+        <option>Provide Internship and Job Opportunities</option>
+        <option>Volunteer your Expertise</option>
+        <option>Join LSU Alumni Network</option>
+        <option>Other</option>
+      </select>
+    </label>
+    {% endif %}
+    <label>Message
+      <textarea name="message" rows="5" required></textarea>
+    </label>
+    <button type="submit" class="btn">Send</button>
+  </form>
+  {% endif %}
+</div>

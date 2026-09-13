@@ -1,0 +1,77 @@
+---
+layout: base.njk
+permalink: /
+title: Home
+---
+<section class="hero">
+  <div class="wrap">
+    <h1>{{ home.heroTitle }}</h1>
+    <p class="hero-subtitle">{{ home.heroSubtitle }}</p>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="two-col">
+    <div>
+      <h2>{{ home.welcomeHeading }}</h2>
+      <p class="eyebrow">Prez &amp; Veep</p>
+      <p>{{ home.welcomeBody }}</p>
+    </div>
+    <div>
+      <h2>Dr. Attakora Legal Tree</h2>
+      <p>{{ home.legalTreeTeaser }}</p>
+      <a class="btn" href="/dr-attakora-legal-tree/">Learn more</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section alt-bg">
+  <h2>{{ home.alumniHeading }}</h2>
+  <p>{{ home.alumniBody }}</p>
+  <a class="btn" href="/about-us/">Learn more</a>
+</section>
+
+<section class="wrap section">
+  <h2>{{ home.announcementHeading }}</h2>
+  <p>{{ home.announcementBody }}</p>
+
+  <div class="team-grid">
+    {% for member in collections.team %}
+    <div class="team-card">
+      <img src="{{ member.data.photo or '/assets/images/uploads/placeholder-avatar.svg' }}" alt="{{ member.data.name }}">
+      <h3>{{ member.data.name }}</h3>
+      <p>{{ member.data.role }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% if collections.announcements.length %}
+<section class="wrap section alt-bg">
+  <h2>Latest Announcements</h2>
+  <div class="announcement-list">
+    {% for post in collections.announcements %}
+    <article class="announcement-card">
+      <p class="eyebrow">{{ post.data.date | dateDisplay }}</p>
+      <h3>{{ post.data.title }}</h3>
+      <div>{{ post.templateContent | safe }}</div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if collections.events.length %}
+<section class="wrap section">
+  <h2>Upcoming Events</h2>
+  <div class="announcement-list">
+    {% for event in collections.events %}
+    <article class="announcement-card">
+      <p class="eyebrow">{{ event.data.date | dateDisplay }}{% if event.data.location %} · {{ event.data.location }}{% endif %}</p>
+      <h3>{{ event.data.title }}</h3>
+      <div>{{ event.templateContent | safe }}</div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

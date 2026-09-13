@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | {{ site.name }}</title>
+  <meta name="description" content="{{ description or site.tagline }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">LSU</span>
+        <span class="brand-text">{{ site.name }}</span>
+      </a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-burger" aria-label="Menu">☰</label>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/about-us/">About Us</a>
+        <a href="/dr-attakora-legal-tree/">Dr. Attakora Legal Tree</a>
+        <a href="/chambers-on-campus/">Chambers</a>
+        <a href="/support-lsu/">Support LSU</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-col">
+        <h3>{{ site.name }}</h3>
+        <p>{{ site.tagline }}</p>
+        <div class="social-links">
+          {% if site.facebook %}<a href="{{ site.facebook }}" target="_blank" rel="noopener">Facebook</a>{% endif %}
+          {% if site.linkedin %}<a href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
+          {% if site.twitter %}<a href="{{ site.twitter }}" target="_blank" rel="noopener">X</a>{% endif %}
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Useful Links</h4>
+        <a href="/about-us/">About Us</a>
+        <a href="/dr-attakora-legal-tree/">Resources</a>
+        <a href="/support-lsu/">Support LSU</a>
+        <a href="/chambers-on-campus/">Chambers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>{{ site.phone }}</p>
+        <p>{{ site.email }}</p>
+        <p>{{ site.address }}</p>
+      </div>
+    </div>
+    <div class="wrap copyright">
+      © {{ site.year }} {{ site.name }}. All Rights Reserved.
+    </div>
+  </footer>
+</body>
+</html>

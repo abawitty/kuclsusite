@@ -1,0 +1,207 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+site_url: https://REPLACE-WITH-YOUR-NETLIFY-OR-CUSTOM-DOMAIN
+display_url: https://REPLACE-WITH-YOUR-NETLIFY-OR-CUSTOM-DOMAIN
+
+collections:
+  - name: "home"
+    label: "Home Page"
+    files:
+      - name: "home"
+        label: "Home Page Content"
+        file: "src/_data/home.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "string" }
+          - { label: "Welcome Heading", name: "welcomeHeading", widget: "string" }
+          - { label: "Welcome Message Body", name: "welcomeBody", widget: "text" }
+          - { label: "Legal Tree Teaser", name: "legalTreeTeaser", widget: "text" }
+          - { label: "Alumni Network Heading", name: "alumniHeading", widget: "string" }
+          - { label: "Alumni Network Body", name: "alumniBody", widget: "text" }
+          - { label: "Announcement Heading", name: "announcementHeading", widget: "string" }
+          - { label: "Announcement Body", name: "announcementBody", widget: "text" }
+
+  - name: "site_settings"
+    label: "Site Settings"
+    files:
+      - name: "site"
+        label: "Contact & Social Info"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Organization Name", name: "name", widget: "string" }
+          - { label: "Short Name", name: "shortName", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Phone / WhatsApp", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Address", name: "address", widget: "string" }
+          - { label: "Facebook URL", name: "facebook", widget: "string", required: false }
+          - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+          - { label: "LinkedIn URL", name: "linkedin", widget: "string", required: false }
+          - { label: "X / Twitter URL", name: "twitter", widget: "string", required: false }
+          - { label: "Copyright Year", name: "year", widget: "string" }
+
+  - name: "pages"
+    label: "Site Pages"
+    files:
+      - name: "about"
+        label: "About Us"
+        file: "src/content/pages/about-us.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "page.njk" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/about-us/" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+          - { label: "Show Executive Team", name: "showTeam", widget: "boolean", default: true }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - name: "support_lsu"
+        label: "Support LSU"
+        file: "src/content/pages/support-lsu.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "page.njk" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/support-lsu/" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Show Form", name: "showForm", widget: "hidden", default: true }
+          - { label: "Form Name", name: "formName", widget: "hidden", default: "support-lsu" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - name: "contact"
+        label: "Contact"
+        file: "src/content/pages/contact.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "page.njk" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/contact/" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Show Form", name: "showForm", widget: "hidden", default: true }
+          - { label: "Form Name", name: "formName", widget: "hidden", default: "contact" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - name: "chambers"
+        label: "Campus Chambers"
+        file: "src/content/pages/chambers-on-campus.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "page.njk" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/chambers-on-campus/" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+          - label: "Chambers"
+            name: "chambers"
+            widget: "list"
+            field: { label: "Chamber Name", name: "chamber", widget: "string" }
+          - { label: "Chamber Assignments Document URL", name: "assignmentsUrl", widget: "string", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - name: "legal_tree_index"
+        label: "Dr. Attakora Legal Tree (Main Page)"
+        file: "src/content/pages/dr-attakora-legal-tree/index.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "page.njk" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/dr-attakora-legal-tree/" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+          - label: "Quick Links"
+            name: "links"
+            widget: "list"
+            field:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - name: "legal_tree_law_reports"
+        label: "Legal Tree: Law Reports"
+        file: "src/content/pages/dr-attakora-legal-tree/access-ghana-law-report.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "page.njk" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/dr-attakora-legal-tree/access-ghana-law-report/" }
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "Links"
+            name: "links"
+            widget: "list"
+            field:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - name: "legal_tree_textbooks"
+        label: "Legal Tree: Textbooks"
+        file: "src/content/pages/dr-attakora-legal-tree/access-textbooks.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "page.njk" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/dr-attakora-legal-tree/access-textbooks/" }
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "Links"
+            name: "links"
+            widget: "list"
+            field:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - name: "legal_tree_past_questions"
+        label: "Legal Tree: Past Questions"
+        file: "src/content/pages/dr-attakora-legal-tree/access-past-questions.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "page.njk" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/dr-attakora-legal-tree/access-past-questions/" }
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "Links"
+            name: "links"
+            widget: "list"
+            required: false
+            field:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - name: "legal_tree_journals"
+        label: "Legal Tree: Journals & Publications"
+        file: "src/content/pages/dr-attakora-legal-tree/access-journals-and-publications.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "page.njk" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/dr-attakora-legal-tree/access-journals-and-publications/" }
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "Links"
+            name: "links"
+            widget: "list"
+            required: false
+            field:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "team"
+    label: "Executive Team"
+    folder: "src/content/team"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Display Order", name: "order", widget: "number", default: 10 }
+      - { label: "Photo", name: "photo", widget: "image", required: false }
+
+  - name: "announcements"
+    label: "Announcements"
+    folder: "src/content/announcements"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "events"
+    label: "Events"
+    folder: "src/content/events"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Location", name: "location", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
