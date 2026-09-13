@@ -1,59 +1,66 @@
-const Parser = require("rss-parser");
-
-const FEED_URL = "https://www.myjoyonline.com/feed/";
+const SITE_URL = "https://www.thelawplatform.online";
 const MAX_ITEMS = 12;
-
-const LAW_KEYWORDS = [
-  "court", "judge", "justice", "judiciary", "judicial", "bar association",
-  "attorney", "lawyer", "legal", "law school", "verdict", "ruling",
-  "supreme court", "constitutional", "appeal", "prosecut", "tribunal",
-  "bill into law", "acquit", "remand", "sentenc", "magistrate", "moot",
-];
 
 const FALLBACK_ITEMS = [
   {
-    title: "Ghana Bar Association news and updates",
-    link: "https://www.myjoyonline.com/",
-    source: "MyJoyOnline",
-  },
-  {
-    title: "Supreme Court of Ghana — recent rulings",
-    link: "https://www.myjoyonline.com/",
-    source: "MyJoyOnline",
-  },
-  {
-    title: "Judicial Service of Ghana — news",
-    link: "https://judicial.gov.gh/",
-    source: "Judicial Service of Ghana",
+    title: "Visit The Law Platform for the latest Ghana legal news",
+    link: SITE_URL,
+    source: "The Law Platform",
   },
 ];
 
+// The Law Platform is a Next.js app; article title+link pairs are embedded as
+// JSON inside self.__next_f.push([...]) script chunks (React Server
+// Components flight data), not in plain HTML or an RSS feed.
+async function extractArticles(html) {
+  const chunkPattern = /self\.__next_f\.push\((\[.*?\])\)<\/script>/gs;
+  const pairPattern = /"href":"(\/post\/[^"]+)"(?:(?!"href").){1,800}?"h2",null,\{"className":"[^"]*","children":"([^"]+)"/gs;
+
+  const seen = new Set();
+  const items = [];
+
+  let chunkMatch;
+  while ((chunkMatch = chunkPattern.exec(html)) !== null) {
+    let decoded;
+    try {
+      const arr = JSON.parse(chunkMatch[1]);
+      if (arr.length === 2 && typeof arr[1] === "string") {
+        decoded = arr[1];
+      }
+    } catch {
+      continue;
+    }
+    if (!decoded) continue;
+
+    let pairMatch;
+    pairPattern.lastIndex = 0;
+    while ((pairMatch = pairPattern.exec(decoded)) !== null) {
+      const [, href, title] = pairMatch;
+      if (seen.has(href)) continue;
+      seen.add(href);
+      items.push({
+        title: title.trim(),
+        link: SITE_URL + href,
+        source: "The Law Platform",
+      });
+    }
+  }
+
+  return items;
+}
+
 module.exports = async function () {
   try {
-    const parser = new Parser({ timeout: 8000 });
-    const feed = await parser.parseURL(FEED_URL);
-    const items = (feed.items || []).map((item) => ({
-      title: (item.title || "").trim(),
-      link: item.link,
-      source: "MyJoyOnline",
-    }));
-
-    const lawItems = items.filter((item) => {
-      const t = item.title.toLowerCase();
-      return LAW_KEYWORDS.some((kw) => t.includes(kw));
+    const res = await fetch(SITE_URL, {
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; KUCLSU-site-build/1.0)" },
+      signal: AbortSignal.timeout(10000),
     });
-
-    let selected = lawItems;
-    if (selected.length < 4) {
-      const extra = items.filter((item) => !selected.includes(item));
-      selected = selected.concat(extra).slice(0, MAX_ITEMS);
-    } else {
-      selected = selected.slice(0, MAX_ITEMS);
-    }
-
-    return selected.length ? selected : FALLBACK_ITEMS;
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const html = await res.text();
+    const items = await extractArticles(html);
+    return items.length ? items.slice(0, MAX_ITEMS) : FALLBACK_ITEMS;
   } catch (err) {
-    console.warn("lawNews: feed fetch failed, using fallback —", err.message);
+    console.warn("lawNews: fetch/parse failed, using fallback —", err.message);
     return FALLBACK_ITEMS;
   }
 };
