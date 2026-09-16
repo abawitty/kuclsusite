@@ -1,6 +1,6 @@
 ---
-name: Millicent Naa Botor Odonkor
-role: Vice President of Moot Court Society
-order: 10
-photo: /assets/images/uploads/millicent-odonkor-vice-president-of-moot-court-society-.png
+name: Christabel Bampoe
+role: Women's Commissioner
+order: 11
+photo: /assets/images/uploads/christabel-bampoe-women-s-commissioner-.png
 ---
